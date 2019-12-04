@@ -6,15 +6,21 @@ var io = require('socket.io')(http);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', function(req, res) {
+  res.sendStatus(200);
+});
+
 app.post('/updateQueue', function(req, res) {
-  var session = req.body.sessionid;
+  var session = req.query.sessionid;
   io.to(session).emit('update', 'queue');
+  console.log(session);
   res.sendStatus(200);
 });
 
 app.post('/updateChat', function(req, res) {
-  var session = req.body.sessionid;
+  var session = req.query.sessionid;
   io.to(session).emit('update', 'chat');
+  console.log(session);
   res.sendStatus(200);
 });
 
