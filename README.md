@@ -8,7 +8,7 @@ A simple helper server for the kickback project
 
 # Client Connections
 - First instantiate the socket: 
-    - `var socket = io(<ip:port>);`
+    - `var socket = io(<server-ip>);`
 - Immediately connect to the session:
     - `socket.emit('join', <session_id>);`
 - Set up a listener:
