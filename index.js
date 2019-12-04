@@ -6,6 +6,10 @@ var io = require('socket.io')(http);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', function(req, res) {
+  res.sendStatus(200);
+});
+
 app.post('/updateQueue', function(req, res) {
   var session = req.query.sessionid;
   io.to(session).emit('update', 'queue');

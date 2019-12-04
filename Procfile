@@ -1,1 +1,2 @@
-web: node index
+web: yarn
+web: node index.js
