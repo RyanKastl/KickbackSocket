@@ -1,0 +1,9 @@
+{
+  "name": "kickback-socket-server",
+  "version": "0.0.1",
+  "description": "Socket Server for Kickback",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.3.0"
+  }
+}
