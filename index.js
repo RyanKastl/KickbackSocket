@@ -38,7 +38,7 @@ app.post('/updateChat', function(req, res) {
 
 app.post('/updateFollowers', function(req, res) {
   var users = req.body.usernames;
-  console.log("Followers: " + users);
+  console.log("#######################################################################################################################################Followers: " + users);
   if (!Array.isArray(users) && !isValidString(users)) {
     console.log("Invalid parameter sent to /updateFollowers");
 
