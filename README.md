@@ -16,7 +16,7 @@ A simple helper server for the kickback project
 
 - Set up a listener:
     - `socket.on('update', function(msg) { <Handling> });`
-    - `msg` will either be `"queue"` or `"chat"` which specifies whether the queue or the chat should be updated on the client.
+    - `msg` will either be `"queue"`, `"chat"`, or `"followers"` which specifies whether the queue, chat, or followers should be updated on the client.
 - When leaving a session:
     - `socket.emit('leave', <session_id>);`
 
