@@ -13,16 +13,23 @@ app.get('/', function(req, res) {
 });
 
 app.post('/updateQueue', function(req, res) {
-  var session = req.query.sessionid;
+  var session = req.body.sessionid;
   io.to(session).emit('update', 'queue');
   console.log(session);
   res.sendStatus(200);
 });
 
 app.post('/updateChat', function(req, res) {
-  var session = req.query.sessionid;
+  var session = req.body.sessionid;
   io.to(session).emit('update', 'chat');
   console.log(session);
+  res.sendStatus(200);
+});
+
+app.post('/updateFollowers', function(req, res) {
+  var users = req.body.usernames;
+  console.log(users);
+  users.forEach(user => io.to(user).emit('update', 'followers'));
   res.sendStatus(200);
 });
 
