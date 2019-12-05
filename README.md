@@ -10,9 +10,11 @@ A simple helper server for the kickback project
 - First instantiate the socket: 
     - `var socket = io(<server-ip>);`
 
-- Immediately connect to the session and register your username:
-    - `socket.emit('join', <session_id>);`
+- When logging in:
     - `socket.emit('join', <username>);`
+
+- When joining a session:
+    - `socket.emit('join', <session_id>);`
 
 - Set up a listener:
     - `socket.on('update', function(msg) { <Handling> });`
