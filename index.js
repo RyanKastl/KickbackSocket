@@ -38,12 +38,13 @@ app.post('/updateChat', function(req, res) {
 
 app.post('/updateFollowers', function(req, res) {
   var users = req.body.usernames;
+  console.log(users);
   if (!Array.isArray(users)) {
     console.log("Invalid parameter sent to /updateFollowers");
+
     res.send("/updateFollowers requires a 'usernames' Array<string> parameter.");
     return;
   }
-  console.log(users);
   users.forEach(function(user) {
     if (isValidString(user)) {
       io.to(user).emit('update', 'followers');
