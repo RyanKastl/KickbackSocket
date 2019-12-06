@@ -38,10 +38,9 @@ app.post('/updateChat', function(req, res) {
 
 app.post('/updateFollowers', function(req, res) {
   var users = req.body.usernames;
-  console.log("#######################################################################################################################################Followers: " + users);
+  console.log("################################### RECEIVED FOLLOWERS: " + users);
   if (!Array.isArray(users) && !isValidString(users)) {
     console.log("Invalid parameter sent to /updateFollowers");
-
     res.send("/updateFollowers requires a 'usernames' Array<string> parameter.");
     return;
   }
@@ -49,11 +48,13 @@ app.post('/updateFollowers', function(req, res) {
     users.forEach(function(user) {
       if (isValidString(user)) {
         io.to(user).emit('update', 'followers');
+        console.log("################################### EMITTING ARRAY FOLLOWER UPDATE TO: " + user);
       }
     }); 
   }
-  else if (isValidString(users)) {
+  else {
     io.to(users).emit('update', 'followers');
+    console.log("################################### EMITTING SINGLE FOLLOWER UPDATE TO: " + users);
   }
   res.sendStatus(200);
 });
